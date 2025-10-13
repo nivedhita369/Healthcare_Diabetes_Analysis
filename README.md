@@ -513,9 +513,10 @@ If deployed, the model should be:
 
 ## Credits 
 
-* In my visualisations, I used % value annotations on bar plots to enhance interpretability. This idea was inspired from when I was going through older projects shared by Vasi for reference. There were many projects which had used this technique and I found it very useful. So I decided to use it in my project as well. I looked for the code from online to do this. Thanks to Vasi for sharing those projects which made me aware of this technique.
+* In my visualisations, I used % value annotations on bar plots to enhance interpretability. This idea was inspired by techniques I saw in multiple projects shared by Vasi. While I do not recall the exact project, these examples made me aware of this approach. The actual implementation code was sourced from online resources. Thanks to Vasi for sharing those projects that inspired this technique.
 * In the EDA, I used IQR to identify outliers in few columns based on their max value. But while performing a loop "for col, val in (columns_to_check, values_to_check):" it wasnot working. I looked up online and found that it should be "zip(columns_to_check, values_to_check)". This helped me understand the concept of zipping to iterate through multiple lists in parallel. 
-* In the ML model, I used prediction probabilities from the best model on the test set to predict diabetes risk. This idea was inspired from a project shared by Vasi for reference. The link to the project is here : https://github.com/Iqra-qbl/Heart-Failure-Risk-Analysis/blob/main/jupyter_notebooks/3.%20Predictive%20modelling.ipynb. Tweaked the code to suit my project and adjusted it for just the test set. Hopefully I have given due credit to the original author.
+* In the ML model, I used prediction probabilities from the best model on the test set to predict diabetes risk. This idea was inspired from a project shared by Vasi for reference. The link to the project is here : https://github.com/Iqra-qbl/Heart-Failure-Risk-Analysis/blob/main/jupyter_notebooks/3.%20Predictive%20modelling.ipynb. I adapted the code to fit my dataset and focused on the test set. Full credit to the original author for their work.
+* Hopefully I have given credit to all the sources I referred to.
 
 ### Content 
 
@@ -524,10 +525,10 @@ If deployed, the model should be:
 ### Media
 
 - The CI logo is from Code Institute.
-- The images/screenshots used in this readme file were created by me. The Kanban board screenshot is from my GitHub Projects page. The project folder structure image is one I created in the initial planning phase of the project.
+- The images/screenshots used in this readme file were created by me. The Kanban board screenshot is from my GitHub Projects page. 
+- The project folder structure image is one I created in the initial planning phase of the project.
 - The wireframe is created by me in PowerBI.
 - The PowerBI dashboard is created by me in PowerBI.
-
 
 ## Acknowledgements (optional)
 * Thanks to my facilitator Vasi for his continuous support and guidance throughout the project.
