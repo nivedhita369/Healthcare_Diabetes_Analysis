@@ -48,8 +48,8 @@ This project explores healthcare data to understand the key factors associated w
   - **Validation Technique:**
   * Since these are numeric variables(not normalised), I used Mann-whitney U test to compare the distributions of HbA1c and blood glucose levels between diabetic and non-diabetic groups.
 
-  - **Cocnlusion:** 
-  * The P-value was < 0.05 leading to rejection of null hypothesis and acceptance of alternative hypothesis.>
+  - **Conclusion:** 
+  * The P-value was < 0.05 leading to rejection of null hypothesis and acceptance of alternative hypothesis.
 
 ### 2) Impact of Hypertension and Heart Disease on Diabetes
 
@@ -62,8 +62,8 @@ This project explores healthcare data to understand the key factors associated w
 - **Validation Technique:**
   * Since these are numeric binary variables, I used Chi-square test of independence. 
 
-- **Cocnlusion:**
-  * The P-value was < 0.05 leading to rejection of null hypothesis and acceptance of alternative hypothesis.>
+- **Conclusion:**
+  * The P-value was < 0.05 leading to rejection of null hypothesis and acceptance of alternative hypothesis.
 
 ### 3) Association between BMI and Diabetes
 
@@ -76,8 +76,8 @@ This project explores healthcare data to understand the key factors associated w
 - **Validation Technique:**
   * Since this is a numeric variable(not normalised), I used Mann-whitney U test to compare the distributions of BMI between diabetic and non-diabetic groups.
 
-- **Cocnlusion:** 
-  * The P-value was < 0.05 leading to rejection of null hypothesis and acceptance of alternative hypothesis.>
+- **Conclusion:** 
+  * The P-value was < 0.05 leading to rejection of null hypothesis and acceptance of alternative hypothesis.
 
 ### 4) Association between Smoking and Diabetes
 
@@ -90,8 +90,8 @@ This project explores healthcare data to understand the key factors associated w
 - **Validation Technique:**
   * Since this is a categorical variables, I used Chi-square test of independence. 
 
-- **Cocnlusion:**
-  * The P-value was < 0.05 leading to rejection of null hypothesis and acceptance of alternative hypothesis.>
+- **Conclusion:**
+  * The P-value was < 0.05 leading to rejection of null hypothesis and acceptance of alternative hypothesis.
 
 ### 5) Association between Age and Diabetes
 
@@ -104,8 +104,23 @@ This project explores healthcare data to understand the key factors associated w
 - **Validation Technique:**
   * Since this is a numeric binary variable(not normalised), I used Mann-whitney U test to compare the distributions of age between diabetic and non-diabetic groups.
 
-- **Cocnlusion:** 
+- **Conclusion:** 
   * The P-value was < 0.05 leading to rejection of null hypothesis and acceptance of alternative hypothesis.
+
+### Impact of Key Factors on Diabetes
+
+* Based on the EDA and hypothesis testing, the individual impact of key factors on diabetes is summarised below:
+
+- **HbA1c, Blood Glucose & BMI:** Higher levels are strongly associated with increased diabetes risk.  
+- **Age:** Older age shows a significant association with higher diabetes likelihood.  
+- **Hypertension:** Exhibits a moderate association with diabetes.  
+- **Heart Disease:** Shows a weak to moderate association with diabetes.  
+- **Gender:** Has minimal association with diabetes.  
+- **Smoking History:** Displays weak to moderate association; a large 'Unknown' category (22.4%) is retained to avoid data loss or bias.
+
+* For categorical variables, Chi-square tests were conducted, using **Cramér’s V** to assess the strength of associations. 
+
+* For numeric variables, the **Mann-Whitney test** was applied, with mean and median values compared across diabetes and non-diabetes groups to interpret the differences.
 
 ## Project Plan
 
@@ -134,8 +149,8 @@ This project explores healthcare data to understand the key factors associated w
 
 ### 1.4 Exploratory Data Analysis (EDA)
 * EDA was performed in 2 phases:
-  * Descriptive EDA - Here I explored the data using summary statistics and visualisations to understand distributions, relationships, and patterns in the data. This helped in identifying potential features for further analysis.
-  * Hypothesis Driven EDA - Here I formulated specific hypotheses based on the business requirements and tested them using appropriate statistical methods. This phase helped in validating or refuting assumptions about the data.
+  * **Descriptive EDA** - Here I explored the data using summary statistics and visualisations to understand distributions, relationships, and patterns in the data. This helped in identifying potential features for further analysis.
+  * **Hypothesis Driven EDA** - Here I formulated specific hypotheses based on the business requirements and tested them using appropriate statistical methods. This phase helped in validating or refuting assumptions about the data.
 * All steps of the analysis are documented in a Jupyter Notebook - EDA.ipynb
 
 ### 1.5 Feature_Engineering
@@ -146,11 +161,12 @@ This project explores healthcare data to understand the key factors associated w
   * Created a  new feature "diabetes_risk" based on HbA1c and blood glucose levels to categorise patients into low, moderate, high and very hish risk for diabetes.
   * Reduced the smoking into 3 categories for bertter visualisation.
 * For Machine Learning : 
-  * I one-hot encoded categorical variables gender and the new smoking category variable.
+  * I one-hot encoded categorical variables gender and the new smoking category variable, so the classification algorithm can have a numeric representation of these variables.
   * Used Winzorization to handle outliers in HbA1c and bmi.
 * All steps of the analysis are documented in a Jupyter Notebook - Feature_Engineering.ipynb
 
 ### 1.6 Modeling & Evaluation
+* Did standard scaling, feature selection and model using pipelines.
 * Performed model training and evaluation using various 2 classification algorithms - Logistic Regression and Random Forest.
 * used confusion matrix, classification report to evaluate model performance.
 * Accuracy, Precision, Recall were the key metrics used to compare model performance.
@@ -168,87 +184,14 @@ This project explores healthcare data to understand the key factors associated w
 
 ### 1.8 Output files
 * Loaded all the output files from each phase of the analysis into the data folder across 3 subfolders - raw, cleaned and transformed.
-* Raw folder -  contains the original dataset and the sampled dataset used for analysis.
-* Cleaned folder - contains the cleaned dataset after ETL phase.
-* Transformed folder contains the 3 final datasets after feature engineering phase and ML model     
+* **Raw folder** -  contains the original dataset and the sampled dataset used for analysis.
+* **Cleaned folder** - contains the cleaned dataset after ETL phase.
+* **Transformed folder** contains the 3 final datasets after feature engineering phase and ML model     
     - 2 files from feature engineering phase - one for dashboarding and one for ML modeling.
     - 1 file from ML modeling phase - contains the test set with risk score from the best model.
 
 ### 1.9 Dashboard
-* Created interactive dashboard using PowerBI to communicate insights to both technical and non-technical audiences.
-
-#### 📊 Power BI Dashboard: Diabetes Prediction and Risk Analysis
-
-This dashboard explores key factors contributing to diabetes using data visualizations and machine learning model evaluation. Built in Power BI and supported by data preprocessing and model training in Python (using Scikit-learn), this dashboard aims to deliver clear, interactive insights for both technical and non-technical audiences.
-
-
-#### 🗂️ Dashboard Sections
-
-### 1️⃣ Overview
-
-**Audience:** Non-technical and business users  
-**Purpose:** High-level summary of the dataset and diabetes-related trends.
-
-- Displays key health metrics: BMI, glucose, HbA1c  
-- Interactive slicers allow filtering by demographic and health attributes  
-- Summary insights highlight key patterns and correlations  
-- Simple, clean visuals for quick understanding.
-- Slicers for interactive filtering.
-
-### 2️⃣ Demographics & Health Metrics
-
-**Audience:** Technical Analysts, non-technical healthcare professionals  
-**Purpose:** Visualize how diabetes relates to age, glucose, HbA1c, and other health indicators.
-
-- **Scatter Plot:** Compares glucose vs. HbA1c across diabetes status  
-- **Stacked Column Chart:** Shows diabetes risk by age group and category  
-- **Yellow Line:** Tracks % of diabetes cases by age  
-- Hover tooltips reveal extra context (BMI, diabetes status,age_group etc.)  
-- Fully interactive — selections in one plot update the others
-
-
-### 3️⃣ Key Influencers & Health Metrics
-
-**Audience:** Both technical and non-technical users seeking detailed analysis.
-**Purpose:** Highlight features most influential in predicting diabetes.
-
-- **Key Influencers Visual:** Ranks variables by their impact  
-- **Multi-card Visual:** Shows average BMI, HbA1c, median glucose, and diabetes % per age group  
-- Clicking a row updates the related visual for detailed comparison  
-
-
-### 4️⃣ Model Metrics
-
-**Audience:** Primarily for technical users. For informed non-technical users interested in model performance.
-**Purpose:** Compare performance of machine learning models used for diabetes prediction.
-
-- Evaluates **Logistic Regression** vs **Random Forest**  
-- Key metrics shown:
-  - **Accuracy** (Train/Test)
-  - **Recall** (focus on diabetes class)
-  - **False Negatives** (missed diagnoses)
-- Verdict: **Random Forest** performs better across all metrics, especially in recall — critical for healthcare prediction.
-
-### 🗣️ Insights Communication
-
-To make the dashboard easy to understand and accessible to both technical and non-technical users, each report section includes:
-
-- **Text annotations and notes** that explain:  
-  - The relevance of the plot to diabetes analysis  
-  - Key takeaways and trends to observe
-
-- Use of **simple, clear language** to highlight insights without requiring a technical background.
-- **Interactive visuals** enhanced with hover tooltips providing additional context.  
-
-This approach ensures:  
-- **Non-technical users** can confidently interpret the findings.  
-- **Technical users** can quickly grasp the data story and visual logic.  
-- The dashboard functions both as an **analytical tool** and a **communication platform**
-
-### 🧠 Interactivity Note
-
-All Power BI visuals are interactive:  
-Selecting a data point or model updates related charts and tables dynamically.
+* Develop an interactive Power BI dashboard to analyze key factors influencing diabetes using demographic and health data. Integrate clear insights and annotations to make findings accessible to both technical and non-technical users. Compare machine learning model performances to guide decision-making. Ensure seamless interactivity across visuals for dynamic, user-driven exploration.
 
 ## 2 Project Planning Tools
 * Used Kanban board in GitHub Projects to plan and track the progress of the project.
@@ -265,9 +208,12 @@ Selecting a data point or model updates related charts and tables dynamically.
 * The project is structured into several key directories and files to ensure organization and clarity:
   * **data/**: Contains the dataset files used in the analysis, organized into subfolders for raw, cleaned, and transformed data.
   * **jupyter_notebooks/**: Contains Jupyter Notebooks for each phase of the analysis, including ETL, EDA, Feature Engineering, and ML Modeling.
-  * **reports/**: Contains the wireframe and the PowerBI dashboard file in the Dasbbaord folder.
+  * **reports/**:
+      * Contains the wireframe and the PowerBI dashboard file in the Dasbbaord folder.
+      * Contains images used in the README file in the Images folder.
   * **README.md**: Provides an overview of the project, including objectives, methodology, and instructions for replication.
   * **.gitignore**: Specifies files and directories to be ignored by Git version control.
+      * Original dataset with 100k records is ignored to avoid large file size in the repo.
   * **requirements.txt**: Lists the Python libraries and dependencies required to run the analysis.
   * **.venv**: Contains virtual environment variables (if any) needed for the project.
   * Below is the kanban board screenshot from GitHub Projects showing the project planning and task tracking.
@@ -342,7 +288,10 @@ Selecting a data point or model updates related charts and tables dynamically.
  
 ### 5. Dashboarding:
 * Used PowerBI to create an interactive dashboard to communicate insights to both technical and non-technical audiences.
-* Used a combination of visualisations, text explanations, and interactive elements to communicate complex data insights to different audiences.
+ **Comprehensive Exploration:** Analyze key demographic, health, and risk factors influencing diabetes using interactive visualizations and clear summary metrics.  
+- **Insightful Communication:** Include annotated notes and tooltips to make insights easy to understand for both technical and non-technical users.  
+- **Model Performance Evaluation:** Compare Logistic Regression and Random Forest models focusing on accuracy, recall, and false negatives to inform model choice.  
+- **Interactive User Experience:** Provide dynamic cross-filtering across visuals, enabling users to explore relationships and outcomes based on their interests.
 
 ### 6. Limitations and alternative approaches:
 * The original dataset is very huge with 100k records. The target variable is imbalanced with only ~9% positive for diabetes. This could be a representation of real-world prevalence.
@@ -351,14 +300,16 @@ Selecting a data point or model updates related charts and tables dynamically.
 * The dataset lacks certain potentially relevant features such as physical activity levels, dietary habits, and family history of diabetes. The absence of these variables may limit the comprehensiveness of the analysis and the ability to capture all factors influencing diabetes risk.
 * Alternative approaches could include using techniques like SMOTE for handling class imbalance instead of random sampling. Additionally, exploring other machine learning algorithms such as Gradient Boosting or Support Vector Machines could provide further insights into diabetes classification.
 * I plan on exploring these alternative approaches in future iterations of the project upon acquiring more knowledge and skills.
+* Learn about the ROC-AUC metric and use it for model evaluation in future.
 
 ### 7. Generative AI tools used:
-* Used ChatGPT to help  with:
+* Used gen-AI to help  with:
   * Brainstorming ideas and identifying potential approaches.
   * Troubleshooting code errors and bugs.
   * Code optimisation and good practices.
   * For summarising the key findings from EDA and ML modeling phases.
-  * For markdown formatting in the README.md file.
+  * For markdown formatting and various sections in the README.md file.
+  * For comminicating insights in the PowerBI dashboard.
   * Vscode copilot helped with autosuggestions while writing the README.md file.
   * Used chatGPT for code snippets for adding % value annotations on bar plots.
   * Used chatGPT to understand the concept of zipping to iterate through multiple lists in parallel.
@@ -388,16 +339,88 @@ Selecting a data point or model updates related charts and tables dynamically.
 - The results of this project are meant to be **illustrative and exploratory only for educational purpose**, not diagnostic.
 
 ## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
-* Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
-* How were data insights communicated to technical and non-technical audiences?
-* Explain how the dashboard was designed to communicate complex data insights to different audiences. 
+
+#### 📊 Power BI Dashboard: Diabetes Prediction and Risk Analysis
+
+This dashboard explores key factors contributing to diabetes using data visualizations and machine learning model evaluation. Built in Power BI and supported by data preprocessing and model training in Python (using Scikit-learn), this dashboard aims to deliver clear, interactive insights for both technical and non-technical audiences.
+
+
+#### 🗂️ Dashboard Sections
+
+### 1️⃣ Overview
+
+**Audience:** Non-technical and business users  
+**Purpose:** High-level summary of the dataset and diabetes-related trends.
+
+- Displays key health metrics: BMI, glucose, HbA1c  
+- Interactive slicers allow filtering by demographic and health attributes  
+- Summary insights highlight key patterns and correlations  
+- Simple, clean visuals for quick understanding.
+- Slicers for interactive filtering.
+
+### 2️⃣ Demographics & Health Metrics
+
+**Audience:** Technical Analysts, non-technical healthcare professionals  
+**Purpose:** Visualize how diabetes relates to age, glucose, HbA1c, and other health indicators.
+
+- **Scatter Plot:** Compares glucose vs. HbA1c across diabetes status  
+- **Stacked Column Chart:** Shows diabetes risk by age group and category  
+- **Yellow Line:** Tracks % of diabetes cases by age  
+- Hover tooltips reveal extra context (BMI, diabetes status,age_group etc.)  
+- Fully interactive — selections in one plot update the others
+
+
+### 3️⃣ Key Influencers & Health Metrics
+
+**Audience:** Both technical and non-technical users seeking detailed analysis.
+**Purpose:** Highlight features most influential in predicting diabetes.
+
+- **Key Influencers Visual:** Ranks variables by their impact  
+- **Multi-card Visual:** Shows average BMI, HbA1c, median glucose, and diabetes % per age group  
+- Clicking a row updates the related visual for detailed comparison  
+
+
+### 4️⃣ Model Metrics
+
+**Audience:** Primarily for technical users. For informed non-technical users interested in model performance.
+**Purpose:** Compare performance of machine learning models used for diabetes prediction.
+
+- Evaluates **Logistic Regression** vs **Random Forest**  
+- Key metrics shown:
+  - **Accuracy** (Train/Test)
+  - **Recall** (focus on diabetes class)
+  - **False Negatives** (missed diagnoses)
+- Verdict: **Random Forest** performs better across all metrics, especially in recall — critical for healthcare prediction.
+
+### 🗣️ Insights Communication
+
+To make the dashboard easy to understand and accessible to both technical and non-technical users, each report section includes:
+
+- **Text annotations and notes** that explain:  
+  - The relevance of the plot to diabetes analysis  
+  - Key takeaways and trends to observe
+
+- Use of **simple, clear language** to highlight insights without requiring a technical background.
+- **Interactive visuals** enhanced with hover tooltips providing additional context.  
+
+This approach ensures:  
+- **Non-technical users** can confidently interpret the findings.  
+- **Technical users** can quickly grasp the data story and visual logic.  
+- The dashboard functions both as an **analytical tool** and a **communication platform**
+
+### 🧠 Interactivity Note
+
+All Power BI visuals are interactive:  
+Selecting a data point or model updates related charts and tables dynamically.
+This interactivity allows users to explore relationships and drill down into specific segments of interest, enhancing understanding and engagement with the data.
 
 ## Unfixed Bugs
 * There are no unfixed bugs in the project. All code has been tested and verified to work as intended.
 * I did have to refer back to the course material and online resources for coding help.
 * With the ML phase, though I know the flow/logic, I am not very comfortable with the coding part yet. So I did refer back to the course material.
 * I plan to improve my coding skills in this area in future.
+* Learn best practices for coding, code documentation and commenting.
+* Improving my skills in powerBI as well.
 
 ## Development Roadmap
 
@@ -422,6 +445,7 @@ Selecting a data point or model updates related charts and tables dynamically.
 
 ## Main Data Analysis Libraries
 * Below are the main libraries used for data analysis in this project:
+**Pyhton Libraries:**
   * Pandas - for data manipulation and analysis.
   * Numpy  - for numerical computations.  
   * Matplotlib   - for data visualisation.
@@ -431,6 +455,7 @@ Selecting a data point or model updates related charts and tables dynamically.
   * Pingouin -  for normality tests and statistical analysis.
   * Scikits-learn - for pipeline, scaling, feature selection, model training, machine learning algorithms and model evaluation.
   * Feature-engine - for feature engineering tasks like one-hot encoding and winsorization.
+**PowerBI** - for creating interactive dashboards to communicate insights.
 
 ## Application of data analytics in healthcare
 
@@ -495,9 +520,9 @@ If deployed, the model should be:
 - The CI logo is from Code Institute.
 - The images/screenshots used in this readme file were created by me. The Kanban board screenshot is from my GitHub Projects page. The project folder structure image is one I created in the initial planning phase of the project.
 - The wireframe is created by me in PowerBI.
+- The PowerBI dashboard is created by me in PowerBI.
 
 
 ## Acknowledgements (optional)
 * Thanks to my facilitator Vasi for his continuous support and guidance throughout the project.
 * Thanks to my technical coaches Mark, Niel and Roman for imparting their knowledge during the course which helped me in the project development.
-
