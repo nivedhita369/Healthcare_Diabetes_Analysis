@@ -209,8 +209,8 @@ This project explores healthcare data to understand the key factors associated w
   * **data/**: Contains the dataset files used in the analysis, organized into subfolders for raw, cleaned, and transformed data.
   * **jupyter_notebooks/**: Contains Jupyter Notebooks for each phase of the analysis, including ETL, EDA, Feature Engineering, and ML Modeling.
   * **reports/**:
-      * Contains the wireframe and the PowerBI dashboard file in the Dasbbaord folder.
-      * Contains images used in the README file in the Images folder.
+      * Contains the wireframe and the PowerBI dashboard file in the **Dasbbaord folder**.
+      * Contains images used in the README file in the **Images folder**.
   * **README.md**: Provides an overview of the project, including objectives, methodology, and instructions for replication.
   * **.gitignore**: Specifies files and directories to be ignored by Git version control.
       * Original dataset with 100k records is ignored to avoid large file size in the repo.
@@ -220,8 +220,9 @@ This project explores healthcare data to understand the key factors associated w
   ![Kanban Board](Reports/Images/kanban_board.png)
   * Below is the screenshot of the project structure I initially planned. There were some changes made during the project development which are reflected in the actual project structure.
   ![Project folder structure](Reports/Images/project_folder_structure.png)
+  * Below is the screenshot of the wireframe I created in PowerBI with empty sketches and text descriptions of the visualisations.
+  ![Wireframe](Reports/Dashboard/Wireframe.png)
   
-
 ## The rationale to map the business requirements to the Data Visualisations
 
 ### 1. Gain a deeper understanding of the key health indicators and risk factors associated with diabetes within the patient population. 
@@ -413,6 +414,11 @@ This approach ensures:
 All Power BI visuals are interactive:  
 Selecting a data point or model updates related charts and tables dynamically.
 This interactivity allows users to explore relationships and drill down into specific segments of interest, enhancing understanding and engagement with the data.
+
+* The powerBI file is present in the Reports/Dashboard folder - Diabetes_analysis_dashboard.pbix.
+
+* Below is the screenshot of the PowerBI dashboard overview page.
+![Dasboard_overview](Reports/Images/Dashboard_overview.png)
 
 ## Unfixed Bugs
 * There are no unfixed bugs in the project. All code has been tested and verified to work as intended.
