@@ -177,6 +177,79 @@ This project explores healthcare data to understand the key factors associated w
 ### 1.9 Dashboard
 * Created interactive dashboard using PowerBI to communicate insights to both technical and non-technical audiences.
 
+#### 📊 Power BI Dashboard: Diabetes Prediction and Risk Analysis
+
+This dashboard explores key factors contributing to diabetes using data visualizations and machine learning model evaluation. Built in Power BI and supported by data preprocessing and model training in Python (using Scikit-learn), this dashboard aims to deliver clear, interactive insights for both technical and non-technical audiences.
+
+
+#### 🗂️ Dashboard Sections
+
+### 1️⃣ Overview
+
+**Audience:** Non-technical and business users  
+**Purpose:** High-level summary of the dataset and diabetes-related trends.
+
+- Displays key health metrics: BMI, glucose, HbA1c  
+- Interactive slicers allow filtering by demographic and health attributes  
+- Summary insights highlight key patterns and correlations  
+- Simple, clean visuals for quick understanding.
+- Slicers for interactive filtering.
+
+### 2️⃣ Demographics & Health Metrics
+
+**Audience:** Technical Analysts, non-technical healthcare professionals  
+**Purpose:** Visualize how diabetes relates to age, glucose, HbA1c, and other health indicators.
+
+- **Scatter Plot:** Compares glucose vs. HbA1c across diabetes status  
+- **Stacked Column Chart:** Shows diabetes risk by age group and category  
+- **Yellow Line:** Tracks % of diabetes cases by age  
+- Hover tooltips reveal extra context (BMI, diabetes status,age_group etc.)  
+- Fully interactive — selections in one plot update the others
+
+
+### 3️⃣ Key Influencers & Health Metrics
+
+**Audience:** Both technical and non-technical users seeking detailed analysis.
+**Purpose:** Highlight features most influential in predicting diabetes.
+
+- **Key Influencers Visual:** Ranks variables by their impact  
+- **Multi-card Visual:** Shows average BMI, HbA1c, median glucose, and diabetes % per age group  
+- Clicking a row updates the related visual for detailed comparison  
+
+
+### 4️⃣ Model Metrics
+
+**Audience:** Primarily for technical users. For informed non-technical users interested in model performance.
+**Purpose:** Compare performance of machine learning models used for diabetes prediction.
+
+- Evaluates **Logistic Regression** vs **Random Forest**  
+- Key metrics shown:
+  - **Accuracy** (Train/Test)
+  - **Recall** (focus on diabetes class)
+  - **False Negatives** (missed diagnoses)
+- Verdict: **Random Forest** performs better across all metrics, especially in recall — critical for healthcare prediction.
+
+### 🗣️ Insights Communication
+
+To make the dashboard easy to understand and accessible to both technical and non-technical users, each report section includes:
+
+- **Text annotations and notes** that explain:  
+  - The relevance of the plot to diabetes analysis  
+  - Key takeaways and trends to observe
+
+- Use of **simple, clear language** to highlight insights without requiring a technical background.
+- **Interactive visuals** enhanced with hover tooltips providing additional context.  
+
+This approach ensures:  
+- **Non-technical users** can confidently interpret the findings.  
+- **Technical users** can quickly grasp the data story and visual logic.  
+- The dashboard functions both as an **analytical tool** and a **communication platform**
+
+### 🧠 Interactivity Note
+
+All Power BI visuals are interactive:  
+Selecting a data point or model updates related charts and tables dynamically.
+
 ## 2 Project Planning Tools
 * Used Kanban board in GitHub Projects to plan and track the progress of the project.
 * Created columns for Backlog, Ready,In Progress, Issues, Review, and Done to manage tasks effectively.
